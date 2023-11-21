@@ -28,7 +28,10 @@
 ##' means(x, type="arithmetic", ci=TRUE)
 ##' means(x, type="geometric", ci=TRUE)
 ##' means(x, type="median", ci=TRUE)
-
+##' library(data.table)
+##' ## CRAN requires examples to run on a single thread
+##' data.table::setDTthreads(1)
+##' data.table(x=x)[,append(means(x,ci=TRUE),list(N=.N))]
 
 means <- function(x,type="arithmetic",na.rm=FALSE,z.rm=FALSE,ci=FALSE,
                   dist.ci="t",p.ci=.95,colnames=c("est","ll","ul"),
